@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cc -c -Wall -Wextra -Werror *.c
+ar -cr libft.a *.o
