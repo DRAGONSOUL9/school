@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 23:17:35 by oussama           #+#    #+#             */
-/*   Updated: 2025/08/12 12:00:22 by oussama          ###   ########.fr       */
+/*   Updated: 2025/08/16 17:50:21 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ size_t	ft_strlen(const char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	return (0);
+	return (i);
 }
