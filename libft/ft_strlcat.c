@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 15:52:28 by oussama           #+#    #+#             */
-/*   Updated: 2025/08/16 18:05:19 by oussama          ###   ########.fr       */
+/*   Updated: 2025/08/17 01:01:09 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	while (src[s_len])
 		s_len++;
 	if (size < s_len)
-                return (size + s_len);
+		return (size + s_len);
 	d_len = 0;
 	while (dst[d_len])
 		d_len++;
