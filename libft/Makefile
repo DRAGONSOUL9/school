@@ -6,7 +6,7 @@
 #    By: oussama <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/16 16:51:24 by oussama           #+#    #+#              #
-#    Updated: 2025/08/16 22:56:58 by oussama          ###   ########.fr        #
+#    Updated: 2025/08/25 20:09:19 by oussama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,5 @@ fclean: clean
 
 mk: libft.a
 	cc $(FLG) main.c  libft.a
-	./a.out
 
 re: fclean all
