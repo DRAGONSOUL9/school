@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 20:31:31 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/01 00:52:47 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/08 15:51:21 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_free_arr(char **arr, size_t index)
 {
-	while(index > 0)
+	while (index > 0)
 	{
 		free(arr[index - 1]);
 		index--;
@@ -31,9 +31,9 @@ static size_t	ft_find_arr_size(char const *s, char c)
 	size = 0;
 	while (s[i])
 	{
-		if (i == 0 && (s[i+1] != '\0' || s[i+1] != c))
+		if (i == 0 && (s[i + 1] != '\0' || s[i + 1] != c))
 			size++;
-		else if (s[i] == c && s[i-1] != c)
+		else if (s[i] == c && s[i - 1] != c)
 			size++;
 		i++;
 	}
@@ -45,7 +45,7 @@ static size_t	ft_word_size(char const *s, char c)
 	size_t	i;
 
 	i = 0;
-	while(s[i] && s[i] != c)
+	while (s[i] && s[i] != c)
 		i++;
 	return (i);
 }
@@ -58,18 +58,18 @@ static char	**ft_fill_arr(char const *s, char c, char **arr)
 
 	i = 0;
 	index = 0;
-	while(s[i])
+	while (s[i])
 	{
-		if(s[i] != c)
+		if (s[i] != c)
 		{
-			w_size = ft_word_size(&s[i],c);
+			w_size = ft_word_size(&s[i], c);
 			arr[index] = malloc (w_size + 1);
-			if(!arr[index])
+			if (!arr[index])
 			{
-				ft_free_arr(arr,index);
+				ft_free_arr(arr, index);
 				return (NULL);
 			}
-			ft_strlcpy(arr[index++],&s[i],w_size + 1);
+			ft_strlcpy(arr[index++], &s[i], w_size + 1);
 			i += w_size;
 		}
 		else
@@ -86,11 +86,11 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	size = ft_find_arr_size(s,c);
+	size = ft_find_arr_size(s, c);
 	arr = malloc (sizeof(char *) * (size + 1));
 	if (!arr)
 		return (NULL);
-	if (!ft_fill_arr(s,c,arr))
+	if (!ft_fill_arr(s, c, arr))
 		return (NULL);
 	return (arr);
 }

@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 01:50:30 by oussama           #+#    #+#             */
-/*   Updated: 2025/08/17 02:33:10 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/08 15:51:44 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(str, s1, len1 + 1);
 	ft_strlcat(str, s2, len1 + len2 + 1);
-
 	return (str);
 }

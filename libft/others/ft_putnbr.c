@@ -6,17 +6,17 @@
 /*   By: oel--mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 11:28:09 by oel--mou          #+#    #+#             */
-/*   Updated: 2025/08/31 23:58:19 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/08 15:59:05 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr(size_t nb)
+void	ft_putnbr(int nb)
 {
 	char	c;
 
-	/*if (nb == -2147483648)
+	if (nb == -2147483648)
 	{
 		write (1, "-2147483648", 11);
 		return ;
@@ -25,10 +25,9 @@ void	ft_putnbr(size_t nb)
 	{
 		write (1, "-", 1);
 		nb *= -1;
-	}*/
+	}
 	c = (nb % 10) + '0';
 	if ((nb / 10) != 0)
 		ft_putnbr(nb / 10);
 	write (1, &c, 1);
-	write (1, "\n", 1);
 }

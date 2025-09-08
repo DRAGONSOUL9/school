@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 00:10:32 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/01 02:03:52 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/08 15:45:42 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,10 @@ void	test_part_2(void)
 	//ft_itoa
 	printf("\n------------- ft_itoa -----------\n");
 	printf("%s\n",ft_itoa(1234));
+	printf("%s\n",ft_itoa(-42));
+	printf("%s\n",ft_itoa(2147483647));
+	printf("%s\n",ft_itoa(-2147483648));
+	printf("%s\n",ft_itoa(214748364));
+	printf("%s\n",ft_itoa(1998));
 
 }
