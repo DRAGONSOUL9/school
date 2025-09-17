@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:52:37 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/01 02:02:08 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/14 23:38:28 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -14,13 +14,30 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+
+typedef struct	s_list
+{
+	void	*content;
+	struct	s_list *next;
+}	t_list;
+
+//bonus
+t_list  *ft_lstnew(void *content);
+void    ft_lstadd_front(t_list **lst, t_list *new);
+int     ft_lstsize(t_list *lst);
+t_list  *ft_lstlast(t_list *lst);
+void    ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void    ft_lstclear(t_list **lst, void (*del)(void *));
 
 //this command are additional
 void	ft_putnbr(int nb);
+void	ft_putstr(char *str, char c);
+void	ft_test(unsigned int i, char *c);
 
 
 //Part1
-
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 int	ft_isalnum(int c);
@@ -52,5 +69,11 @@ char    *ft_strjoin(char const *s1, char const *s2);
 char    *ft_strtrim(char const *s1, char const *set);
 char    **ft_split(char const *s, char c);
 char    *ft_itoa(int n);
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void    ft_striteri(char *s, void (*f)(unsigned int, char*));
+void    ft_putchar_fd(char c, int fd);
+void    ft_putstr_fd(char *s, int fd);
+void    ft_putendl_fd(char *s, int fd);
+void    ft_putnbr_fd(int n, int fd);
 
 #endif

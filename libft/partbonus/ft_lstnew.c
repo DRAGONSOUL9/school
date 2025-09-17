@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 22:34:24 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/12 12:21:20 by oussama          ###   ########.fr       */
+/*   Created: 2025/09/12 18:18:53 by oussama           #+#    #+#             */
+/*   Updated: 2025/09/12 18:51:28 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+t_list	*ft_lstnew(void *content)
 {
-	int		i;
-	int		sign;
-	long	result;
+	t_list	*new;
 
-	i = 0;
-	sign = 1;
-	if (!str)
-		return (0);
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	result = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	new = malloc (sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+
+	return (new);
 }

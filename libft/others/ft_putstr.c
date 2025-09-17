@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: oel--mou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 12:03:47 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/12 18:45:52 by oussama          ###   ########.fr       */
+/*   Created: 2025/07/17 14:54:53 by oel--mou          #+#    #+#             */
+/*   Updated: 2025/09/08 20:04:57 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putstr(char *str, char c)
 {
-	size_t			i;
-	unsigned char	*p;
+	int	i;
 
-	if (!s)
-		return ;
-	p = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	if (!str)
 	{
-		p[i] = '\0';
+		write (1, "this is ft_putstr and this message shows if the string is NULL\n", 63);
+		return ;
+	}
+	while (str[i])
+	{
+		write (1, &str[i], 1);
 		i++;
 	}
+	write (1, &c, 1);
 }

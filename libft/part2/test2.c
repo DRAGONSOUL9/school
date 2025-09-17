@@ -6,11 +6,12 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 00:10:32 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/08 15:45:42 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/12 12:14:40 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <fcntl.h>
 
 static void	ft_print_double_arr(char **arr)
 {
@@ -43,10 +44,6 @@ void	test_part_2(void)
 	ft_print_double_arr(ft_split("this is a test",'\n'));
 	printf("\ntest %d: NULL for str\n",i++);
 	ft_print_double_arr(ft_split(NULL,' '));
-	//printf("test 7: No \n");
-	//ft_print_double_arr(ft_split("this is a test",''));
-	//printf("test 8: No delimeter\n");
-	//ft_print_double_arr(ft_split("this is a test",''));
 	
 	//ft_itoa
 	printf("\n------------- ft_itoa -----------\n");
@@ -57,4 +54,38 @@ void	test_part_2(void)
 	printf("%s\n",ft_itoa(214748364));
 	printf("%s\n",ft_itoa(1998));
 
+	//ft_strmapi	
+	printf("\n------------- ft_strmapi -----------\n");
+	//ft_putstr(ft_strmapi("this is a test",ft_test),'\n');
+
+	//ft_striteri	
+	printf("\n------------- ft_striteri -----------\n");
+	//char str[] = "this is a test\n";
+	//ft_striteri(str,ft_test);
+
+	//ft_putchar_fd
+	printf("\n------------- ft_putchar_fd -----------\n");
+	ft_putchar_fd('A',1);
+	ft_putchar_fd('\n',1);
+
+	//ft_putstr_fd
+	printf("\n------------- ft_putstr_fd -----------\n");
+	ft_putstr_fd("this is a test for ft_putstr_fd\n",1);
+
+	//ft_putendl_fd
+	printf("\n------------- ft_putendl_fd -----------\n");
+	ft_putendl_fd("this is a test for ft_putendl_fd",1);
+
+	//ft_putnbr_fd
+	printf("\n------------- ft_putnbr_fd -----------\n");
+	ft_putnbr_fd(-2147483648,1);
+	ft_putchar_fd('\n',1);
+	ft_putnbr_fd(2147483647,1);
+	ft_putchar_fd('\n',1);
+	ft_putnbr_fd(0,1);
+	ft_putchar_fd('\n',1);
+	ft_putnbr_fd(42,1);
+	ft_putchar_fd('\n',1);
+	ft_putnbr_fd(-42,1);
+	ft_putchar_fd('\n',1);
 }
