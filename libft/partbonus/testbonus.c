@@ -1,19 +1,20 @@
 #include "libft.h"
 
-void	ft_freenode(void *content)
+static void	ft_freenode(void *content)
 {
 	if (!content)
 		return ;
 	free(content);
 }
 
-void	ft_putlst(t_list *node)
+static void	ft_putlst(t_list *node)
 {
 	if (!node)
 		return ;
 	while (node)
 	{
 		ft_putstr_fd(node->content,1);
+		
 		if ((node->next))
 		{
 			ft_putstr_fd(" -> ",1);
@@ -23,6 +24,68 @@ void	ft_putlst(t_list *node)
 			break ;
 	}
 	write (1, "\n", 1);
+}
+
+static t_list	*ft_lstlong(int start, int end, void (*ft)(t_list**,t_list*))
+{
+	t_list	*test;
+
+	test = NULL;
+        char    *str;
+	int	i = start;
+        while (i < end)
+        {
+                str = ft_itoa(i);
+                ft(&test,ft_lstnew(str));
+                i++;
+        }
+	return (test);
+}
+
+static void	ft_lstdelback(t_list **lst, void (*del)(void *))
+{
+	t_list	*tmp;
+	t_list	*prev;
+
+	if (!lst || !del)
+		return ;
+	tmp = (*lst);
+	prev = NULL;
+	while(tmp->next)
+	{
+		prev = tmp;
+		tmp = tmp->next;
+	}
+	if (prev)
+		prev->next = NULL;
+	else
+		(*lst) = NULL;
+	ft_lstdelone(tmp,del);
+}
+
+static void	ft_islstfree(t_list *lst)
+{
+	if (lst)
+                ft_putstr_fd("freeing the node : Failed\n",1);
+        else
+                ft_putstr_fd("freeing the node : Success\n",1);
+}
+
+static void	ft_testiter(void *content)
+{
+	char	*str;
+
+	str = ft_itoa(ft_atoi((char *)content) + 20);
+	ft_strlcpy((char *)content,str,3);
+}
+
+static void	*ft_testmap(void *content)
+{
+	char	*str;
+
+	str = ft_itoa(ft_atoi((char *)content) + 40);
+	ft_strlcpy((char *)content,str,3);
+	return (str);
 }
 
 void	test_partbonus(void)
@@ -41,14 +104,7 @@ void	test_partbonus(void)
 	//void    ft_lstadd_front(t_list **lst, t_list *new)
 	ft_putstr_fd("\n---------------ft_lstadd_front------------\n",1);
 	test = NULL;
-	int     i = 0;
-        char	*str;
-        while (i < 15)
-        {
-                str = ft_strdup(ft_itoa(i));
-                ft_lstadd_front(&test,ft_lstnew(str));
-		i++;
-        }
+	test = ft_lstlong(0,10,ft_lstadd_front);
 	ft_putlst(test);
 
 	//int ft_lstsize(t_list *lst)
@@ -66,16 +122,25 @@ void	test_partbonus(void)
 	//ft_lstadd_back
 	ft_putstr_fd("\n---------------ft_lstadd_back------------\n",1);
 	t_list *test4 = NULL;
-        i = 0;
-        while (i < 15)
-        {
-                str = ft_strdup(ft_itoa(i));
-                ft_lstadd_back(&test4,ft_lstnew(str));
-                i++;
-        }
+        test4 = ft_lstlong(100,110,ft_lstadd_back);
 	ft_putlst(test4);
 	ft_putstr_fd("\nthis is a test to see if i can concatenate two nodes test and test4\n",1);
 	ft_lstadd_back(&test4,test);
+	ft_putlst(test4);
+
+	//this code is to seperate test from test4
+	t_list *tmp;
+	tmp = test4;
+	while (tmp->next)
+	{
+		if (ft_strncmp(tmp->content,"109",3) == 0)
+		{
+			tmp->next = NULL;
+			break;
+		}
+		tmp = tmp->next;
+	}
+	ft_putstr_fd("\n	after seperating test from test4\n",1);
 	ft_putlst(test4);
 
 	//ft_lstdelone
@@ -83,10 +148,35 @@ void	test_partbonus(void)
 	ft_putstr_fd("original : ",1);
 	ft_putlst(test);
 	ft_putstr_fd("adding 1998 : ",1);
-	ft_lstadd_back(&test,ft_lstnew(ft_strdup("1998")));
+	ft_lstadd_back(&test,ft_lstnew(ft_itoa(1998)));
 	ft_putlst(test);
 	ft_putstr_fd("freeing 1998 : ",1);
-	ft_lstdelone(ft_lstlast(test),ft_freenode);
+	//ft_lstdelone(ft_lstlast(test),ft_freenode);
+	ft_lstdelback(&test,ft_freenode); //this line seperated the node then deletes it
 	ft_putlst(test);
-	//ft_lstdelone(test);
+
+	//ft_lstclear
+	ft_putstr_fd("\n---------------ft_lstclear------------\n",1);
+	ft_lstclear(&test,ft_freenode);
+	ft_islstfree(test);
+	ft_lstclear(&test4,ft_freenode);
+	ft_islstfree(test4);
+	test4 = ft_lstlong(0,100,ft_lstadd_back);
+	ft_putlst(test4);
+	ft_lstclear(&test4,ft_freenode);
+	ft_islstfree(test4);
+
+	//ft_lstiter
+	ft_putstr_fd("\n---------------ft_lstiter------------\n",1);
+	test4 = ft_lstlong(10,20,ft_lstadd_back);
+	ft_putstr_fd("before node : ",1);
+	ft_putlst(test4);
+	ft_lstiter(test4,ft_testiter);
+	ft_putstr_fd("after node : ",1);
+	ft_putlst(test4);
+
+	//ft_lstmap
+	ft_putstr_fd("\n---------------ft_lstmap------------\n",1);
+	t_list *map = ft_lstmap(test4,ft_testmap,ft_freenode);
+	ft_putlst(map);
 }

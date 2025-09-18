@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:52:37 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/14 23:38:28 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/18 20:44:56 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -30,6 +30,9 @@ t_list  *ft_lstlast(t_list *lst);
 void    ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void    ft_lstclear(t_list **lst, void (*del)(void *));
+void    ft_lstiter(t_list *lst, void (*f)(void *));
+t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
 
 //this command are additional
 void	ft_putnbr(int nb);
