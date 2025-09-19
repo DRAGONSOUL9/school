@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 20:31:31 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/19 03:05:16 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/19 03:39:28 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_word_count(char const *s, char c)
 	{
 		if (i == 0 && s[i] != '\0' && s[i] != c)
 			size++;
-		else if (s[i] == c && s[i - 1] != c)
+		else if (s[i] != c && s[i - 1] == c)
 			size++;
 		i++;
 	}

@@ -6,23 +6,28 @@
 #    By: oussama <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/16 16:51:24 by oussama           #+#    #+#              #
-#    Updated: 2025/09/12 18:35:45 by oussama          ###   ########.fr        #
+#    Updated: 2025/09/19 03:55:40 by oussama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLG = -Wall -Wextra -Werror
 
-SRC1 = $(wildcard ./part1/*.c)
-SRC2 = $(wildcard ./part2/*.c)
-SRC3 = $(wildcard ./partbonus/*.c)
-SRC = $(SRC1) $(SRC2) $(SRC3)
+SRC = $(wildcard ./*.c)
+BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+             ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-all: libft.a
+NAME = libft.a
 
-libft.a: $(OBJ)
-	ar -crs $@ $(OBJ) 
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	ar -crs $@ $(OBJ)
+
+bonus: $(OBJ) $(BONUS_OBJ)
+	ar -crs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 %.o: %.c libft.h
 	cc -g $(FLG) -I. -c $< -o $@
