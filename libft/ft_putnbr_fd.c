@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 11:46:07 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/19 03:07:00 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/19 04:15:44 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
 	{
-		ft_putstr_fd("-2147483648",fd);
+		ft_putstr_fd("-2147483648", fd);
 		return ;
 	}
 	if (n < 0)
 	{
-		ft_putchar_fd('-',fd);
+		ft_putchar_fd('-', fd);
 		n *= -1;
 	}
 	if ((n / 10) != 0)

@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 22:30:30 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/14 23:07:45 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/19 04:11:08 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	if (!lst || !new)
 		return ;

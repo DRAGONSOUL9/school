@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 18:18:53 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/12 18:51:28 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/19 04:15:08 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	new->content = content;
 	new->next = NULL;
-
 	return (new);
 }
