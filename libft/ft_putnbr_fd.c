@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel--mou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 14:54:53 by oel--mou          #+#    #+#             */
-/*   Updated: 2025/09/08 20:04:57 by oussama          ###   ########.fr       */
+/*   Created: 2025/09/12 11:46:07 by oussama           #+#    #+#             */
+/*   Updated: 2025/09/19 03:07:00 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putstr(char *str, char c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-
-	i = 0;
-	if (!str)
+	if (n == -2147483648)
 	{
-		write (1, "this is ft_putstr and this message shows if the string is NULL\n", 63);
+		ft_putstr_fd("-2147483648",fd);
 		return ;
 	}
-	while (str[i])
+	if (n < 0)
 	{
-		write (1, &str[i], 1);
-		i++;
+		ft_putchar_fd('-',fd);
+		n *= -1;
 	}
-	write (1, &c, 1);
+	if ((n / 10) != 0)
+		ft_putnbr_fd((n / 10), fd);
+	ft_putchar_fd(((n % 10) + '0'), fd);
 }

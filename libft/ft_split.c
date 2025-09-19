@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 20:31:31 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/08 15:51:21 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/19 03:05:16 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_free_arr(char **arr, size_t index)
 	free(arr);
 }
 
-static size_t	ft_find_arr_size(char const *s, char c)
+static size_t	ft_word_count(char const *s, char c)
 {
 	size_t	i;
 	size_t	size;
@@ -31,7 +31,7 @@ static size_t	ft_find_arr_size(char const *s, char c)
 	size = 0;
 	while (s[i])
 	{
-		if (i == 0 && (s[i + 1] != '\0' || s[i + 1] != c))
+		if (i == 0 && s[i] != '\0' && s[i] != c)
 			size++;
 		else if (s[i] == c && s[i - 1] != c)
 			size++;
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	size = ft_find_arr_size(s, c);
+	size = ft_word_count(s, c);
 	arr = malloc (sizeof(char *) * (size + 1));
 	if (!arr)
 		return (NULL);

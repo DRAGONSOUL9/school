@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 02:36:57 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/08 15:53:18 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/19 03:03:05 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ static size_t	ft_find_size(char const *s1, char const *set)
 
 	i = 0;
 	size = 0;
-	while (ft_scan_set(s1[i], set) == 1)
+	while (s1[i] && ft_scan_set(s1[i], set) == 1)
 		i++;
+	if (!s1[i])
+		return (0);
 	while (s1[i])
 	{
 		i++;
@@ -59,7 +61,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = malloc(size + 1);
 	if (!res)
 		return (NULL);
-	while (ft_scan_set(s1[i], set) == 1)
+	while (s1[i] && ft_scan_set(s1[i], set) == 1)
 		i++;
 	i2 = 0;
 	while (s1[i] && i2 < size)
