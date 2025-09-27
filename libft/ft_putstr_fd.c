@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 21:29:05 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/08 21:33:38 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/22 00:04:09 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-
 	if (!s)
 		return ;
-	i = 0;
-	while (s[i])
-		write (fd, &s[i++], 1);
+	write (fd, s, ft_strlen(s));
 }

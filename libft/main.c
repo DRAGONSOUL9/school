@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 16:26:05 by oussama           #+#    #+#             */
-/*   Updated: 2025/09/18 20:10:38 by oussama          ###   ########.fr       */
+/*   Updated: 2025/09/19 04:35:17 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	main(void)
 
 	start = clock();
 
-	//test_part_1();
-	//test_part_2();
+	test_part_1();
+	test_part_2();
 	test_partbonus();
 	
 	end = clock();

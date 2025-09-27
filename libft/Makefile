@@ -6,7 +6,7 @@
 #    By: oussama <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/16 16:51:24 by oussama           #+#    #+#              #
-#    Updated: 2025/09/19 03:55:40 by oussama          ###   ########.fr        #
+#    Updated: 2025/09/22 00:03:40 by oussama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,11 @@ $(NAME): $(OBJ)
 bonus: $(OBJ) $(BONUS_OBJ)
 	ar -crs $(NAME) $(OBJ) $(BONUS_OBJ)
 
-%.o: %.c libft.h
-	cc -g $(FLG) -I. -c $< -o $@
+%.o: %.c
+	cc -g $(FLG) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
-	rm -f libft.h.gch
 
 fclean: clean
 	rm -f libft.a
