@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 17:23:35 by oussama           #+#    #+#             */
-/*   Updated: 2025/10/04 17:26:06 by oussama          ###   ########.fr       */
+/*   Updated: 2025/10/08 13:50:31 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,19 @@ int	main(void)
 
         a = ft_printf("ft_printf: %p %d %i %u %x %X %s %c %%\n", &x, 123, -123, 4294967295u, 255, 255, s, c);
         b = printf("printf:    %p %d %i %u %x %X %s %c %%\n", &x, 123, -123, 4294967295u, 255, 255, s, c);
-        printf("ft_printf len = %d | printf len = %d\n", a, b);
+        ft_printf("ft_printf len = %d | printf len = %d\n\n", a, b);
+
+		a = ft_printf("|%5d|\n", 42);
+		b = printf("|%5d|\n", 42);
+        ft_printf("ft_printf len = %d | printf len = %d\n\n", a, b);
+		
+		a = ft_printf("|%-5d|\n", 42);
+		b = printf("|%-5d|\n", 42);
+        ft_printf("ft_printf len = %d | printf len = %d\n\n", a, b);
+		
+		a = ft_printf("|%05d|\n", 42);
+		b = printf("|%05d|\n", 42);
+        ft_printf("ft_printf len = %d | printf len = %d\n\n", a, b);
+		//printf("|%.3d|\n", 42);
+		//printf("|%8.3d|\n", 42);
 }

@@ -6,7 +6,7 @@
 #    By: oussama <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/28 04:49:40 by oussama           #+#    #+#              #
-#    Updated: 2025/10/08 09:41:19 by oussama          ###   ########.fr        #
+#    Updated: 2025/10/08 12:25:15 by oussama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(LIBFT): ./libft/Makefile
 	make -C ./libft
 
 %.o: %.c
-	cc $(FLG) -I ./libft -c $< -o $@
+	cc $(FLG) -g -I ./libft -c $< -o $@
 
 clean:
 	rm -rf $(OBG)
