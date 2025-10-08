@@ -6,13 +6,13 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 03:24:32 by oussama           #+#    #+#             */
-/*   Updated: 2025/10/08 13:48:44 by oussama          ###   ########.fr       */
+/*   Updated: 2025/10/08 15:26:14 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
-
+//added this line to test the push script
 typedef struct s_flags
 {
 	int	minus;
@@ -55,6 +55,7 @@ static int	ft_padding(char c, int size)
 	}
 	return (i);
 }
+
 static int	ft_specialneeds(char c, va_list args, t_flags *flags)
 {
 	int	writen;
