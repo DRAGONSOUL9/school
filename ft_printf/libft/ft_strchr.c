@@ -1,17 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 13:32:37 by oussama           #+#    #+#             */
-/*   Updated: 2025/10/08 09:06:03 by oussama          ###   ########.fr       */
+/*   Created: 2025/08/16 16:29:03 by oussama           #+#    #+#             */
+/*   Updated: 2025/08/16 17:24:53 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdarg.h>
 
-int     ft_putnbr_base(unsigned long n, int base, int uppercase);
-int     ft_printf(const char *str, ...);
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] && s[i] != (char)c)
+		i++;
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (NULL);
+}

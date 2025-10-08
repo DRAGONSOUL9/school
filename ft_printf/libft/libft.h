@@ -6,7 +6,7 @@
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 11:52:37 by oussama           #+#    #+#             */
-/*   Updated: 2025/10/04 16:35:04 by oussama          ###   ########.fr       */
+/*   Updated: 2025/10/08 09:46:58 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-int	ft_putchar_fd(char c, int fd);
-int	ft_putstr_fd(char *s, int fd);
+int	ft_putchar_fd(char c, int fd);	//modified from void to int
+int	ft_putstr_fd(char *s, int fd);	//modified from void to int
 void	ft_putendl_fd(char *s, int fd);
-int	ft_putnbr_fd(int n, int fd);
+int	ft_putnbr_fd(int n, int fd);	//modified from void to int
 //bonus
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -69,8 +69,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-//printf
-int     ft_putnbr_base(unsigned long n, int base, int uppercase);
 
 #endif

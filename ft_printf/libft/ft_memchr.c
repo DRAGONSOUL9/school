@@ -1,17 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 13:32:37 by oussama           #+#    #+#             */
-/*   Updated: 2025/10/08 09:06:03 by oussama          ###   ########.fr       */
+/*   Created: 2025/08/16 21:22:30 by oussama           #+#    #+#             */
+/*   Updated: 2025/09/12 18:46:37 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdarg.h>
 
-int     ft_putnbr_base(unsigned long n, int base, int uppercase);
-int     ft_printf(const char *str, ...);
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	l;
+	unsigned char	*p;
+
+	l = (unsigned char)c;
+	p = (unsigned char *)s;
+	while (n > 0)
+	{
+		if (l == *p)
+			return (p);
+		p++;
+		n--;
+	}
+	return (NULL);
+}

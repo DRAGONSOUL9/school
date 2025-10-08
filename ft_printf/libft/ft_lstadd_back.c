@@ -1,17 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 13:32:37 by oussama           #+#    #+#             */
-/*   Updated: 2025/10/08 09:06:03 by oussama          ###   ########.fr       */
+/*   Created: 2025/09/14 22:30:30 by oussama           #+#    #+#             */
+/*   Updated: 2025/09/19 04:11:08 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdarg.h>
 
-int     ft_putnbr_base(unsigned long n, int base, int uppercase);
-int     ft_printf(const char *str, ...);
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*tmp;
+
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
+		(*lst) = new;
+	else
+	{
+		tmp = ft_lstlast((*lst));
+		tmp->next = new;
+	}
+}

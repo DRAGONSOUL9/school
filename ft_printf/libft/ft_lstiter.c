@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 13:32:37 by oussama           #+#    #+#             */
-/*   Updated: 2025/10/08 09:06:03 by oussama          ###   ########.fr       */
+/*   Created: 2025/09/18 18:29:22 by oussama           #+#    #+#             */
+/*   Updated: 2025/09/18 18:48:40 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdarg.h>
 
-int     ft_putnbr_base(unsigned long n, int base, int uppercase);
-int     ft_printf(const char *str, ...);
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}

@@ -1,17 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oussama <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 13:32:37 by oussama           #+#    #+#             */
-/*   Updated: 2025/10/08 09:06:03 by oussama          ###   ########.fr       */
+/*   Created: 2025/09/12 18:18:53 by oussama           #+#    #+#             */
+/*   Updated: 2025/09/19 04:15:08 by oussama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdarg.h>
 
-int     ft_putnbr_base(unsigned long n, int base, int uppercase);
-int     ft_printf(const char *str, ...);
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new;
+
+	new = malloc (sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}

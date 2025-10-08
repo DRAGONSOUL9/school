@@ -5,38 +5,40 @@
 #                                                     +:+ +:+         +:+      #
 #    By: oussama <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/28 04:49:40 by oussama           #+#    #+#              #
-#    Updated: 2025/10/08 09:41:19 by oussama          ###   ########.fr        #
+#    Created: 2025/08/16 16:51:24 by oussama           #+#    #+#              #
+#    Updated: 2025/09/22 00:03:40 by oussama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLG = -Wall -Wextra -Werror
-SRC = ft_printf.c ft_putnbr_base.c
-OBG = $(SRC:.c=.o)
-NAME = libftprintf.a
-LIBFT = ./libft/libft.a
+
+SRC = $(wildcard ./*.c)
+BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+             ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+
+OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
+
+NAME = libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBG) $(LIBFT)
-	ar -crs $(NAME) $(OBG)
+$(NAME): $(OBJ)
+	ar -crs $@ $(OBJ)
 
-$(LIBFT): ./libft/Makefile
-	make -C ./libft
+bonus: $(OBJ) $(BONUS_OBJ)
+	ar -crs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 %.o: %.c
-	cc $(FLG) -I ./libft -c $< -o $@
+	cc -g $(FLG) -c $< -o $@
 
 clean:
-	rm -rf $(OBG)
-	make clean -C ./libft
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
-	rm -rf a.out
-	make fclean -C ./libft
+	rm -f libft.a
+
+mk: libft.a
+	cc -g $(FLG) main.c  libft.a
 
 re: fclean all
-
-mk: $(NAME)
-	cc $(FLG) -g -I ./libft test.c $(NAME) $(LIBFT)
